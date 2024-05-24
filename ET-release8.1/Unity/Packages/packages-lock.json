@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "com.code-philosophy.hybridclr": {
-      "version": "file:C:/Users/Administrator/Desktop/ET-release8.1/hybridclr_unity",
+      "version": "file:C:/Users/Administrator/Desktop/workbase/workbase/hybridclr_unity",
       "depth": 0,
       "source": "local",
       "dependencies": {}
     },
     "com.cysharp.memorypack": {
-      "version": "file:C:/Users/Administrator/Desktop/ET-release8.1/MemoryPack/src/MemoryPack.Unity/Assets/Plugins/MemoryPack",
+      "version": "file:C:/Users/Administrator/Desktop/workbase/workbase/MemoryPack/src/MemoryPack.Unity/Assets/Plugins/MemoryPack",
       "depth": 0,
       "source": "local",
       "dependencies": {}
