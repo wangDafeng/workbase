@@ -47,30 +47,30 @@ local function genCode(handler)
                     end
                     if isclass then 
                          if getMemberByName then
-                            writer:writeln('%s = self.AddComponent<%s, GObject>(obj.asCom.GetChild("%s"));', memberInfo.varName, memberInfo.type, memberInfo.name)
+                            writer:writeln('self.%s = self.AddComponent<%s, GObject>(obj.asCom.GetChild("%s"));', memberInfo.varName, memberInfo.type, memberInfo.name)
                          else
-                            writer:writeln('%s = self.AddComponent<%s, GObject>(obj.asCom.GetChildAt("%s"));', memberInfo.varName, memberInfo.type, memberInfo.index)
+                            writer:writeln('self.%s = self.AddComponent<%s, GObject>(obj.asCom.GetChildAt("%s"));', memberInfo.varName, memberInfo.type, memberInfo.index)
                          end
                          writer:writeln('EntitySystemSingleton.Instance.Init(%s);',memberInfo.varName)
                     else
                         if getMemberByName then
-                            writer:writeln('%s = (%s)obj.asCom.GetChild("%s");', memberInfo.varName, memberInfo.type, memberInfo.name)
+                            writer:writeln('self.%s = (%s)obj.asCom.GetChild("%s");', memberInfo.varName, memberInfo.type, memberInfo.name)
                         else
-                            writer:writeln('%s = (%s)obj.asCom.GetChildAt(%s);', memberInfo.varName, memberInfo.type, memberInfo.index)
+                            writer:writeln('self.%s = (%s)obj.asCom.GetChildAt(%s);', memberInfo.varName, memberInfo.type, memberInfo.index)
                         end
                     then
 
                elseif memberInfo.group==1 then
                     if getMemberByName then
-                        writer:writeln('%s = obj.asCom.GetController("%s");', memberInfo.varName, memberInfo.name)
+                        writer:writeln('self.%s = obj.asCom.GetController("%s");', memberInfo.varName, memberInfo.name)
                     else
-                        writer:writeln('%s = obj.asCom.GetControllerAt(%s);', memberInfo.varName, memberInfo.index)
+                        writer:writeln('self.%s = obj.asCom.GetControllerAt(%s);', memberInfo.varName, memberInfo.index)
                     end
                else
                     if getMemberByName then
-                        writer:writeln('%s = obj.asCom.GetTransition("%s");', memberInfo.varName, memberInfo.name)
+                        writer:writeln('self.%s = obj.asCom.GetTransition("%s");', memberInfo.varName, memberInfo.name)
                     else
-                        writer:writeln('%s = obj.asCom.GetTransitionAt(%s);', memberInfo.varName, memberInfo.index)
+                        writer:writeln('self.%s = obj.asCom.GetTransitionAt(%s);', memberInfo.varName, memberInfo.index)
                     end
                end
            end
@@ -81,14 +81,33 @@ local function genCode(handler)
            writer:endBlock()
            writer:endBlock()
            writer:endBlock()
-           writer:save(exportCodePath..'/'..classInfo.className..'Generate.cs')
+           writer:save(exportCodePath..'/'..classInfo.className..'SystemGenerate.cs')
         
-    end
-        writer:reset()
 
-  
+
+           writer:reset()
+           writer:writeln('using FairyGUI;')
+           writer:writeln()
+           writer:writeln('namespace ET.Client')
+           writer:startBlock()
+           writer:writeln()
+           writer:writeln('[ComponentOf()]')
+           writer:writeln('public partial class %s : Entity, IAwake<GObject>, IDestroy, IInit',classInfo.className)
+           writer:startBlock()
+           writer:writeln('public GObject com { get; set; }')
+           local memberCnt = members.Count
+           for j=0,memberCnt-1 do
+                local memberInfo = members[j]
+                writer:writeln('public %s %s;',memberInfo.type,memberInfo.varName)
+
+           end
+           writer:endBlock()
+           writer:endBlock()
+
     
-    writer:save(exportCodePath..'/'..binderName..'.cs')
+           writer:save(exportCodePath2..'/'..classInfo.className..'SystemGenerate.cs')
+    end
+
 end
 
 return genCode
