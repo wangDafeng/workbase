@@ -10,6 +10,8 @@ namespace ET.Server
         {
             switch (Options.Instance.AppType)
             {
+
+
                 case AppType.Server:
                 {
                     int process = root.Fiber.Process;

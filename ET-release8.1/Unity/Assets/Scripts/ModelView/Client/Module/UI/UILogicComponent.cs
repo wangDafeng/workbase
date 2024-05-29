@@ -12,13 +12,17 @@ namespace ET.Client
         {
             self.com = obj;
         }
+        [EntitySystem]
+        private static void Destroy(this ET.Client.UILogicComponent self)
+        {
 
+        }
 
     }
 
 
     [ComponentOf(typeof(UI))]
-    public class UILogicComponent : Entity, IAwake<GObject>
+    public class UILogicComponent : Entity, IAwake<GObject>,IDestroy, IInit
     {
         public GObject com;
     }

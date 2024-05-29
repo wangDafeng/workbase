@@ -40,8 +40,8 @@ local function genCode(handler)
                local memberInfo = members[j]
                if memberInfo.group==0 then
                     local isclass = false
-                    for z=0;classCnt-1 do
-                        if classes[i].className == memberInfo.type then 
+                    for z=0,classCnt-1 do
+                        if classes[z].className == memberInfo.type then 
                             isclass = true
                         end
                     end
@@ -49,16 +49,16 @@ local function genCode(handler)
                          if getMemberByName then
                             writer:writeln('self.%s = self.AddComponent<%s, GObject>(obj.asCom.GetChild("%s"));', memberInfo.varName, memberInfo.type, memberInfo.name)
                          else
-                            writer:writeln('self.%s = self.AddComponent<%s, GObject>(obj.asCom.GetChildAt("%s"));', memberInfo.varName, memberInfo.type, memberInfo.index)
+                            writer:writeln('self.%s = self.AddComponent<%s, GObject>(obj.asCom.GetChildAt(%s));', memberInfo.varName, memberInfo.type, memberInfo.index)
                          end
-                         writer:writeln('EntitySystemSingleton.Instance.Init(%s);',memberInfo.varName)
+                         writer:writeln('EntitySystemSingleton.Instance.Init(self.%s);',memberInfo.varName)
                     else
                         if getMemberByName then
                             writer:writeln('self.%s = (%s)obj.asCom.GetChild("%s");', memberInfo.varName, memberInfo.type, memberInfo.name)
                         else
                             writer:writeln('self.%s = (%s)obj.asCom.GetChildAt(%s);', memberInfo.varName, memberInfo.type, memberInfo.index)
                         end
-                    then
+                    end
 
                elseif memberInfo.group==1 then
                     if getMemberByName then
@@ -98,14 +98,25 @@ local function genCode(handler)
            local memberCnt = members.Count
            for j=0,memberCnt-1 do
                 local memberInfo = members[j]
-                writer:writeln('public %s %s;',memberInfo.type,memberInfo.varName)
+                    local isclass = false
+                    for z=0,classCnt-1 do
+                        if classes[z].className == memberInfo.type then 
+                            isclass = true
+                        end
+                    end
+                    if isclass then 
+                        writer:writeln('public EntityRef<%s> %s;',memberInfo.type,memberInfo.varName)
+                    else
+                        writer:writeln('public %s %s;',memberInfo.type,memberInfo.varName)
+                    end
+ 
 
            end
            writer:endBlock()
            writer:endBlock()
 
     
-           writer:save(exportCodePath2..'/'..classInfo.className..'SystemGenerate.cs')
+           writer:save(exportCodePath2..'/'..classInfo.className..'Generate.cs')
     end
 
 end
