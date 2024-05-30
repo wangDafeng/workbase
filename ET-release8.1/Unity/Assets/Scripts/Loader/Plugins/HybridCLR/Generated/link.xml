@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <linker>
+  <assembly fullname="FairyGui">
+    <type fullname="FairyGUI.Controller" preserve="all" />
+    <type fullname="FairyGUI.DestroyMethod" preserve="all" />
+    <type fullname="FairyGUI.EventCallback0" preserve="all" />
+    <type fullname="FairyGUI.EventListener" preserve="all" />
+    <type fullname="FairyGUI.GButton" preserve="all" />
+    <type fullname="FairyGUI.GComponent" preserve="all" />
+    <type fullname="FairyGUI.GGraph" preserve="all" />
+    <type fullname="FairyGUI.GList" preserve="all" />
+    <type fullname="FairyGUI.GObject" preserve="all" />
+    <type fullname="FairyGUI.GRoot" preserve="all" />
+    <type fullname="FairyGUI.PackageItem" preserve="all" />
+    <type fullname="FairyGUI.UIPackage" preserve="all" />
+    <type fullname="FairyGUI.UIPackage/CreateObjectCallback" preserve="all" />
+    <type fullname="FairyGUI.UIPackage/LoadResourceAsync" preserve="all" />
+  </assembly>
   <assembly fullname="MemoryPack">
     <type fullname="MemoryPack.Formatters.ArrayFormatter`1" preserve="all" />
     <type fullname="MemoryPack.Formatters.DictionaryFormatter`2" preserve="all" />
@@ -87,7 +103,6 @@
     <type fullname="ET.DisposeObject" preserve="all" />
     <type fullname="ET.DoubleMap`2" preserve="all" />
     <type fullname="ET.EnableAccessEntiyChildAttribute" preserve="all" />
-    <type fullname="ET.EnableClassAttribute" preserve="all" />
     <type fullname="ET.EnableMethodAttribute" preserve="all" />
     <type fullname="ET.Entity" preserve="all" />
     <type fullname="ET.EntityHelper" preserve="all" />
@@ -95,6 +110,7 @@
     <type fullname="ET.EntitySceneFactory" preserve="all" />
     <type fullname="ET.EntitySystemAttribute" preserve="all" />
     <type fullname="ET.EntitySystemOfAttribute" preserve="all" />
+    <type fullname="ET.EntitySystemSingleton" preserve="all" />
     <type fullname="ET.EnumHelper" preserve="all" />
     <type fullname="ET.ErrorCore" preserve="all" />
     <type fullname="ET.EventAttribute" preserve="all" />
@@ -103,12 +119,14 @@
     <type fullname="ET.FiberInit" preserve="all" />
     <type fullname="ET.FiberManager" preserve="all" />
     <type fullname="ET.FriendOfAttribute" preserve="all" />
+    <type fullname="ET.HandlerObject" preserve="all" />
     <type fullname="ET.IAwake" preserve="all" />
     <type fullname="ET.IAwake`1" preserve="all" />
     <type fullname="ET.IAwake`2" preserve="all" />
     <type fullname="ET.IAwake`3" preserve="all" />
     <type fullname="ET.IConfig" preserve="all" />
     <type fullname="ET.IDestroy" preserve="all" />
+    <type fullname="ET.IInit" preserve="all" />
     <type fullname="ET.IKcpTransport" preserve="all" />
     <type fullname="ET.ILateUpdate" preserve="all" />
     <type fullname="ET.ILocationMessage" preserve="all" />
@@ -127,6 +145,7 @@
     <type fullname="ET.ITransfer" preserve="all" />
     <type fullname="ET.IUpdate" preserve="all" />
     <type fullname="ET.IdGenerater" preserve="all" />
+    <type fullname="ET.InitSystem`1" preserve="all" />
     <type fullname="ET.InvokeAttribute" preserve="all" />
     <type fullname="ET.KService" preserve="all" />
     <type fullname="ET.LSEntitySystemOfAttribute" preserve="all" />
@@ -169,6 +188,7 @@
     <type fullname="ET.StringHashHelper" preserve="all" />
     <type fullname="ET.StringHelper" preserve="all" />
     <type fullname="ET.StructBsonSerialize`1" preserve="all" />
+    <type fullname="ET.SystemObject" preserve="all" />
     <type fullname="ET.TimeInfo" preserve="all" />
     <type fullname="ET.TimerComponent" preserve="all" />
     <type fullname="ET.TimerComponentSystem" preserve="all" />
@@ -228,8 +248,6 @@
   <assembly fullname="UnityEngine.CoreModule">
     <type fullname="UnityEngine.Camera" preserve="all" />
     <type fullname="UnityEngine.Component" preserve="all" />
-    <type fullname="UnityEngine.Events.UnityAction" preserve="all" />
-    <type fullname="UnityEngine.Events.UnityEvent" preserve="all" />
     <type fullname="UnityEngine.GameObject" preserve="all" />
     <type fullname="UnityEngine.KeyCode" preserve="all" />
     <type fullname="UnityEngine.LayerMask" preserve="all" />
@@ -238,6 +256,8 @@
     <type fullname="UnityEngine.Quaternion" preserve="all" />
     <type fullname="UnityEngine.Ray" preserve="all" />
     <type fullname="UnityEngine.SceneManagement.LoadSceneMode" preserve="all" />
+    <type fullname="UnityEngine.TextAsset" preserve="all" />
+    <type fullname="UnityEngine.Texture" preserve="all" />
     <type fullname="UnityEngine.Time" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
     <type fullname="UnityEngine.Vector2" preserve="all" />
@@ -252,7 +272,6 @@
   </assembly>
   <assembly fullname="UnityEngine.UI">
     <type fullname="UnityEngine.UI.Button" preserve="all" />
-    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="all" />
     <type fullname="UnityEngine.UI.InputField" preserve="all" />
     <type fullname="UnityEngine.UI.Text" preserve="all" />
   </assembly>
@@ -288,8 +307,11 @@
     <type fullname="System.Console" preserve="all" />
     <type fullname="System.Diagnostics.DebuggableAttribute" preserve="all" />
     <type fullname="System.Diagnostics.DebuggableAttribute/DebuggingModes" preserve="all" />
+    <type fullname="System.Diagnostics.DebuggerBrowsableAttribute" preserve="all" />
+    <type fullname="System.Diagnostics.DebuggerBrowsableState" preserve="all" />
     <type fullname="System.Diagnostics.DebuggerDisplayAttribute" preserve="all" />
     <type fullname="System.Diagnostics.DebuggerHiddenAttribute" preserve="all" />
+    <type fullname="System.Diagnostics.DebuggerStepThroughAttribute" preserve="all" />
     <type fullname="System.Enum" preserve="all" />
     <type fullname="System.Exception" preserve="all" />
     <type fullname="System.Func`1" preserve="all" />
