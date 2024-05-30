@@ -92,9 +92,8 @@ local function genCode(handler)
            writer:startBlock()
            writer:writeln()
            writer:writeln('[ComponentOf()]')
-           writer:writeln('public partial class %s : Entity, IAwake<GObject>, IDestroy, IInit',classInfo.className)
+           writer:writeln('public partial class %s : UILogicComponent, IAwake<GObject>, IDestroy, IInit',classInfo.className)
            writer:startBlock()
-           writer:writeln('public GObject com { get; set; }')
            local memberCnt = members.Count
            for j=0,memberCnt-1 do
                 local memberInfo = members[j]

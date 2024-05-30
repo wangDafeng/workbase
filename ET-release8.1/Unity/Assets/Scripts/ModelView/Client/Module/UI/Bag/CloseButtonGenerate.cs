@@ -6,9 +6,8 @@ namespace ET.Client
 {
 
     [ComponentOf()]
-    public partial class CloseButton : Entity, IAwake<GObject>, IDestroy, IInit
+    public partial class CloseButton : UILogicComponent, IAwake<GObject>, IDestroy, IInit
     {
-        public GObject com { get; set; }
         public Controller c1;
     }
 }

@@ -2,20 +2,17 @@
 
 namespace ET.Client
 {
-    [EntitySystemOf(typeof(UILogicComponent))]
-    [FriendOfAttribute(typeof(UILogicComponent))]
-    public static partial class UILogicComponentSystem
+
+    [FriendOf(typeof(UILogicComponent))]
+    public static class UILogicComponentSystem
     {
-
-        [EntitySystem]
-        private static void Awake(this UILogicComponent self, GObject obj)
+        public static void AddClick(this UILogicComponent self,GObject g,EventCallback0 call)
         {
-            self.com = obj;
+            g.onClick.Add(call);
         }
-        [EntitySystem]
-        private static void Destroy(this ET.Client.UILogicComponent self)
+        public static void AddClick<T>(this UILogicComponent self, EntityRef<T> entity , EventCallback0 call) where T : UILogicComponent
         {
-
+            ((T)entity).com.onClick.Add(call);
         }
 
     }
@@ -24,6 +21,6 @@ namespace ET.Client
     [ComponentOf(typeof(UI))]
     public class UILogicComponent : Entity, IAwake<GObject>,IDestroy, IInit
     {
-        public GObject com;
+        public GObject com { get; set; }
     }
 }

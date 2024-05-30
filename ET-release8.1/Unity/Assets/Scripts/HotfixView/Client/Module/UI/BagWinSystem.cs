@@ -10,6 +10,7 @@ namespace ET.Client
         private static void Init(this BagWin self)
         {
             ((WindowFrame)self.frame1).com.onClick.Add(() => { Log.Info("111111111"); });
+            self.AddClick(self.frame1, () => { });
       
         }
 

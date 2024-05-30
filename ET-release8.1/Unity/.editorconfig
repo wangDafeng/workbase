@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# ET0003: 实体类限制多层继承
+dotnet_diagnostic.ET0003.severity = none

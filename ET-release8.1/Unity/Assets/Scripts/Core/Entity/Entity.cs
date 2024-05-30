@@ -16,7 +16,7 @@ namespace ET
         IsNew = 1 << 4,
     }
 
-    [MemoryPackable(GenerateType.NoGenerate)]
+   // [MemoryPackable(GenerateType.NoGenerate)]
     public abstract partial class Entity: DisposeObject, IPool
     {
 #if ENABLE_VIEW && UNITY_EDITOR
