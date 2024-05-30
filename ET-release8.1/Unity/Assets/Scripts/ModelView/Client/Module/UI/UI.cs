@@ -64,22 +64,14 @@ namespace ET.Client
             ui?.Dispose();
         }
 
-        public static UI Get<T>(this UI self, string name) where T : UILogicComponent
+        public static UI Get<T>(this UI self, string name) 
         {
             EntityRef<UI> uiRef;
             if (self.nameChildren.TryGetValue(name, out uiRef))
             {
                 return uiRef;
             }
-            GObject childGameObject = self.gObject.asCom.GetChild(name);
-            if (childGameObject == null)
-            {
-                return null;
-            }
-            UI child = self.AddChild<UI, string, GObject>(name, childGameObject);
-            child.AddComponent(typeof(T));
-            self.Add(child);
-            return child;
+            return null;
         }
     }
     

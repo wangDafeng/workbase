@@ -16,9 +16,5 @@ namespace ET.Client
             self.closeButton = self.AddComponent<CloseButton, GObject>(obj.asCom.GetChildAt(3));
             EntitySystemSingleton.Instance.Init(self.closeButton);
         }
-        [EntitySystem]
-        private static void Destroy(this WindowFrame self)
-        {
-        }
     }
 }

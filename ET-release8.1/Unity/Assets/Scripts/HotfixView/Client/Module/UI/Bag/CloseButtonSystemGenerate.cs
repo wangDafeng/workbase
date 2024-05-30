@@ -14,9 +14,5 @@ namespace ET.Client
             self.com = obj;
             self.c1 = obj.asCom.GetControllerAt(1);
         }
-        [EntitySystem]
-        private static void Destroy(this CloseButton self)
-        {
-        }
     }
 }

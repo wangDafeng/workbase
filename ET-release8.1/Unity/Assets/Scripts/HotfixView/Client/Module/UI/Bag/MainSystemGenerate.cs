@@ -14,9 +14,5 @@ namespace ET.Client
             self.com = obj;
             self.bagBtn = (GButton)obj.asCom.GetChildAt(0);
         }
-        [EntitySystem]
-        private static void Destroy(this Main self)
-        {
-        }
     }
 }

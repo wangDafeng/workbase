@@ -17,9 +17,6 @@ namespace ET.Client
             EntitySystemSingleton.Instance.Init(self.frame1);
             self.list = (GList)obj.asCom.GetChildAt(1);
         }
-        [EntitySystem]
-        private static void Destroy(this BagWin self)
-        {
-        }
+
     }
 }

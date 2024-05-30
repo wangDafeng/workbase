@@ -5,8 +5,7 @@ using FairyGUI;
 namespace ET.Client
 {
 
-    [ComponentOf()]
-    public partial class WindowFrame : UILogicComponent, IAwake<GObject>, IDestroy, IInit
+    public partial class WindowFrame : UIViewComponent, IAwake<GObject>, IDestroy, IInit
     {
         public GGraph dragArea;
         public EntityRef<CloseButton> closeButton;

@@ -5,8 +5,7 @@ using FairyGUI;
 namespace ET.Client
 {
 
-    [ComponentOf()]
-    public partial class Main : UILogicComponent, IAwake<GObject>, IDestroy, IInit
+    public partial class Main : UIViewComponent, IAwake<GObject>, IDestroy, IInit
     {
         public GButton bagBtn;
     }

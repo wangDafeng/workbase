@@ -5,8 +5,7 @@ using FairyGUI;
 namespace ET.Client
 {
 
-    [ComponentOf()]
-    public partial class CloseButton : UILogicComponent, IAwake<GObject>, IDestroy, IInit
+    public partial class CloseButton : UIViewComponent, IAwake<GObject>, IDestroy, IInit
     {
         public Controller c1;
     }

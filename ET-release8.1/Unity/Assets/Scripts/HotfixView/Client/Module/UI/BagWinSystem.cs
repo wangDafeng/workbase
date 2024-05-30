@@ -9,11 +9,14 @@ namespace ET.Client
         [EntitySystem]
         private static void Init(this BagWin self)
         {
-            ((WindowFrame)self.frame1).com.onClick.Add(() => { Log.Info("111111111"); });
-            self.AddClick(self.frame1, () => { });
-      
-        }
+            self.AddClick(self.frame1, () => { Log.Info("111111111"); });
 
+        }
+        [EntitySystem]
+        private static void Destroy(this BagWin self)
+        {
+            Log.Info("“this BagWin self");
+        }
     }
 
 }

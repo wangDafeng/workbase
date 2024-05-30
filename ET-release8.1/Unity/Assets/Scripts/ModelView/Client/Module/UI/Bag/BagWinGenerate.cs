@@ -5,8 +5,7 @@ using FairyGUI;
 namespace ET.Client
 {
 
-    [ComponentOf()]
-    public partial class BagWin : UILogicComponent, IAwake<GObject>, IDestroy, IInit
+    public partial class BagWin : UIViewComponent, IAwake<GObject>, IDestroy, IInit
     {
         public Controller page;
         public EntityRef<WindowFrame> frame1;
