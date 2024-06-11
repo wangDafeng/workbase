@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 using YooAsset;
 
@@ -13,6 +14,7 @@ namespace ET
         private readonly string _defaultHostServer;
         private readonly string _fallbackHostServer;
 
+
         public RemoteServices(string defaultHostServer, string fallbackHostServer)
         {
             _defaultHostServer = defaultHostServer;
@@ -21,12 +23,12 @@ namespace ET
 
         string IRemoteServices.GetRemoteMainURL(string fileName)
         {
-            return $"{_defaultHostServer}/{fileName}";
+            return $"{_defaultHostServer}{fileName}";
         }
 
         string IRemoteServices.GetRemoteFallbackURL(string fileName)
         {
-            return $"{_fallbackHostServer}/{fileName}";
+            return $"{_fallbackHostServer}{fileName}";
         }
     }
 
@@ -49,6 +51,7 @@ namespace ET
             {
                 YooAssets.SetDefaultPackage(package);
             }
+            
 
             GlobalConfig globalConfig = Resources.Load<GlobalConfig>("GlobalConfig");
             EPlayMode ePlayMode = globalConfig.EPlayMode;
@@ -71,8 +74,8 @@ namespace ET
                 }
                 case EPlayMode.HostPlayMode:
                 {
-                    string defaultHostServer = GetHostServerURL();
-                    string fallbackHostServer = GetHostServerURL();
+                    string defaultHostServer = GetHostServerURL(globalConfig);
+                    string fallbackHostServer = GetHostServerURL(globalConfig);
                     HostPlayModeParameters createParameters = new();
                     createParameters.BuildinQueryServices = new GameQueryServices();
                     createParameters.RemoteServices = new RemoteServices(defaultHostServer, fallbackHostServer);
@@ -82,44 +85,48 @@ namespace ET
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            var op = package.UpdatePackageVersionAsync(false);
+            await op.Task;
+            Log.Info("PackageVersion" + op.PackageVersion);
         }
 
-        static string GetHostServerURL()
+        static string GetHostServerURL(GlobalConfig globalConfig)
         {
+
             //string hostServerIP = "http://10.0.2.2"; //安卓模拟器地址
-            string hostServerIP = "http://127.0.0.1";
-            string appVersion = "v1.0";
+            //string hostServerIP = "http://127.0.0.1:";
+            string appVersion = "?";
 
 #if UNITY_EDITOR
             if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.Android)
             {
-                return $"{hostServerIP}/CDN/Android/{appVersion}";
+                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
             }
             else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.iOS)
             {
-                return $"{hostServerIP}/CDN/IPhone/{appVersion}";
+                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
             }
             else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.WebGL)
             {
-                return $"{hostServerIP}/CDN/WebGL/{appVersion}";
+                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
             }
 
-            return $"{hostServerIP}/CDN/PC/{appVersion}";
+            return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
 #else
             if (Application.platform == RuntimePlatform.Android)
             {
-                return $"{hostServerIP}/CDN/Android/{appVersion}";
+                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
             }
             else if (Application.platform == RuntimePlatform.IPhonePlayer)
             {
-                return $"{hostServerIP}/CDN/IPhone/{appVersion}";
+                   return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
             }
             else if (Application.platform == RuntimePlatform.WebGLPlayer)
             {
-                return $"{hostServerIP}/CDN/WebGL/{appVersion}";
+                       return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
             }
 
-            return $"{hostServerIP}/CDN/PC/{appVersion}";
+                  return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
 #endif
         }
 

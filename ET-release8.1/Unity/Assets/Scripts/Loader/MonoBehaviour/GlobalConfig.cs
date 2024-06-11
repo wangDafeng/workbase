@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net;
+using UnityEngine;
 using YooAsset;
 
 namespace ET
@@ -28,5 +29,9 @@ namespace ET
         public AppType AppType;
 
         public EPlayMode EPlayMode;
+
+        public string hostServerIP;
+
+        public int hostServerPort;
     }
 }
