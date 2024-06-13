@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n0_p9m0" name="n0" xy="0,0" size="1920,1080" type="rect"/>
+    <text id="n1_p9m0" name="n1" xy="579,234" size="831,232" fontSize="120" align="center" vAlign="middle" autoSize="none" text="更新"/>
+    <component id="n3_p9m0" name="progress" src="p9m01" fileName="ProgressBar1.xml" xy="60,993" size="1800,10">
+      <ProgressBar value="100" max="100"/>
+    </component>
+    <text id="n4_ocl3" name="word" xy="408,949" size="1104,34" fontSize="20" align="center" vars="true" autoSize="none" text="要更新的文件{current=0}/{total=0}"/>
+  </displayList>
+</component>

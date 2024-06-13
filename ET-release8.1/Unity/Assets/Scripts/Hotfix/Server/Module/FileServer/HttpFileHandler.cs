@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net;
+using System.Text;
 
 namespace ET.Server
 {
@@ -8,14 +9,19 @@ namespace ET.Server
     {
         public async ETTask Handle(Scene scene, HttpListenerContext context)
         {
-            HttpGetFileResponse res = HttpGetFileResponse.Create();
             string filePath = "../Resources/" + context.Request.Url.Query.TrimStart('?');
             if (File.Exists(filePath))
             {
                 byte[] buffer = File.ReadAllBytes(filePath);
-                res.FileStream = buffer;
+                context.Response.StatusCode = 200;
+                context.Response.ContentEncoding = Encoding.UTF8;
+                context.Response.ContentLength64 = buffer.Length;
+                context.Response.OutputStream.Write(buffer, 0, buffer.Length);
+            }else
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
             }
-            HttpHelper.Response(context, res);
+
             await ETTask.CompletedTask;
         }
     }

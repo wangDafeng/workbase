@@ -7,7 +7,9 @@
         "HybridCLR.Runtime",
         "MemoryPack",
         "YooAsset",
-        "YooAsset.Editor"
+        "YooAsset.Editor",
+        "Unity.Model",
+        "FairyGui"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

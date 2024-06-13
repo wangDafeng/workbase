@@ -1,5 +1,4 @@
-﻿using System.Net;
-using UnityEngine;
+﻿using UnityEngine;
 using YooAsset;
 
 namespace ET
@@ -32,6 +31,7 @@ namespace ET
 
         public string hostServerIP;
 
-        public int hostServerPort;
+        public int ResPort;
+
     }
 }

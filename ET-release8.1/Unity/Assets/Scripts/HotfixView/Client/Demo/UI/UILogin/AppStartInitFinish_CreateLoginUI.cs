@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Text;
+using YooAsset;
 
 namespace ET.Client
 {
@@ -8,8 +10,9 @@ namespace ET.Client
 		protected override async ETTask Run(Scene root, AppStartInitFinish args)
 		{
 
-			await UIHelper.Create(root, "Bag", "BagWin", UILayer.Mid);
 
-        }
+
+
+		}
 	}
 }

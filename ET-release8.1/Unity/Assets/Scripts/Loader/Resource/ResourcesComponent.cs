@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor.UI;
+using System.Text;
 using UnityEngine;
 using YooAsset;
+
 
 namespace ET
 {
@@ -37,19 +38,29 @@ namespace ET
         public void Awake()
         {
             YooAssets.Initialize();
+            // YooAssets.SetDownloadSystemUnityWebRequest(url =>
+            // {
+            //     UnityWebRequest request = UnityWebRequest.Get(url);
+            //     //request.SendWebRequest();
+            //     return request;
+            //
+            // });
         }
+
 
         protected override void Destroy()
         {
             YooAssets.Destroy();
         }
 
-        public async ETTask CreatePackageAsync(string packageName, bool isDefault = false)
+        public async ETTask<ResourcePackage> CreatePackageAsync(string packageName, bool isDefault = false)
         {
             ResourcePackage package = YooAssets.CreatePackage(packageName);
             if (isDefault)
             {
                 YooAssets.SetDefaultPackage(package);
+                //   DownloadHelper.
+
             }
             
 
@@ -85,9 +96,8 @@ namespace ET
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            var op = package.UpdatePackageVersionAsync(false);
-            await op.Task;
-            Log.Info("PackageVersion" + op.PackageVersion);
+
+            return package;
         }
 
         static string GetHostServerURL(GlobalConfig globalConfig)
@@ -96,37 +106,37 @@ namespace ET
             //string hostServerIP = "http://10.0.2.2"; //安卓模拟器地址
             //string hostServerIP = "http://127.0.0.1:";
             string appVersion = "?";
-
+            string hostServerIP = $"http://{globalConfig.hostServerIP}";
 #if UNITY_EDITOR
             if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.Android)
             {
-                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+                return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
             }
             else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.iOS)
             {
-                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+                return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
             }
             else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.WebGL)
             {
-                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+                return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
             }
 
-            return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+            return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
 #else
             if (Application.platform == RuntimePlatform.Android)
             {
-                return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+                return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
             }
             else if (Application.platform == RuntimePlatform.IPhonePlayer)
             {
-                   return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+                   return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
             }
             else if (Application.platform == RuntimePlatform.WebGLPlayer)
             {
-                       return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+                       return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
             }
 
-                  return $"{globalConfig.hostServerIP}:{globalConfig.hostServerPort}/Resources{appVersion}";
+                  return $"{hostServerIP}:{globalConfig.ResPort}/Resources{appVersion}";
 #endif
         }
 
