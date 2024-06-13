@@ -1,8 +1,8 @@
 local function genCode(handler)
     local settings = handler.project:GetSettings("Publish").codeGeneration
     local codePkgName = handler:ToFilename(handler.pkg.name); --convert chinese to pinyin, remove special chars etc.
-    local exportCodePath = handler.exportCodePath..'/HotfixView/Client/Module/UI/'..codePkgName
-    local exportCodePath2 = handler.exportCodePath..'/ModelView/Client/Module/UI/'..codePkgName
+    local exportCodePath = handler.exportCodePath..'/HotfixView/Client/Module/UI/'..codePkgName..'/Generate'
+    local exportCodePath2 = handler.exportCodePath..'/ModelView/Client/Module/UI/'..codePkgName..'/Generate'
     local namespaceName = ""
     
     if settings.packageName~=nil and settings.packageName~='' then
@@ -22,7 +22,7 @@ local function genCode(handler)
         App.consoleView:Log(classInfo.className)
         local members = classInfo.members
         writer:reset()
-
+           
            writer:writeln('using FairyGUI;')
            writer:writeln()
            writer:writeln('namespace ET.Client')

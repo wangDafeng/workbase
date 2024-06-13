@@ -4,5 +4,5 @@
     <component id="qkmo0" name="HotfixWindow.xml" path="/" exported="true"/>
     <component id="p9m01" name="ProgressBar1.xml" path="/"/>
   </resources>
-  <publish name="" path="C:\Users\Administrator\Desktop\workbase\workbase\ET-release8.1\Unity\Assets\Bundles\HotfixWindow" packageCount="2"/>
+  <publish name="" path="C:\Users\Administrator\Desktop\workbase\workbase\ET-release8.1\Unity\Assets\Resources\HotfixWindow" packageCount="2"/>
 </packageDescription>
