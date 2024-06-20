@@ -7,6 +7,8 @@ namespace ET.Client
 
     public partial class Login : UIViewComponent, IAwake<GObject>, IDestroy, IInit
     {
-        public GTextField m_username;
+        public GTextInput m_account;
+        public GTextInput m_password;
+        public GButton m_Login;
     }
 }

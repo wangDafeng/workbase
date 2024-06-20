@@ -1,5 +1,5 @@
 {
-  "path": "C:\\Users\\Administrator\\Desktop\\workbase\\workbase\\ET-release8.1\\Unity\\Assets\\Bundles\\UI",
+  "path": "C:\\Users\\12717\\Documents\\GitHub\\workbase\\ET-release8.1\\Unity\\Assets\\Bundles\\UI",
   "branchPath": "",
   "fileExtension": "bytes",
   "packageCount": 2,
@@ -9,7 +9,7 @@
   "compressPNG": false,
   "codeGeneration": {
     "allowGenCode": true,
-    "codePath": "C:\\Users\\Administrator\\Desktop\\workbase\\workbase\\ET-release8.1\\Unity\\Assets\\Scripts",
+    "codePath": "C:\\Users\\12717\\Documents\\GitHub\\workbase\\ET-release8.1\\Unity\\Assets\\Scripts",
     "classNamePrefix": "",
     "memberNamePrefix": "m_",
     "packageName": null,
@@ -21,7 +21,7 @@
   "branchProcessing": 0,
   "seperatedAtlasForBranch": false,
   "atlasSetting": {
-    "maxSize": 2048,
+    "maxSize": 4096,
     "paging": true,
     "sizeOption": "pot",
     "forceSquare": false,

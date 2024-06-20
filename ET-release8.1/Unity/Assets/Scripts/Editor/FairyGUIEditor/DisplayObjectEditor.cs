@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.ComponentModel;
+using UnityEngine;
 using UnityEditor;
 using FairyGUI;
+using Container = FairyGUI.Container;
 
 namespace FairyGUIEditor
 {

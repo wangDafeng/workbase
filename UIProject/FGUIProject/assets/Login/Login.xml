@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
   <displayList>
-    <graph id="n0_olug" name="n0" xy="0,0" size="1920,1080" type="rect">
+    <graph id="n0_olug" name="n0" xy="0,0" size="1920,1080" type="rect" fillColor="#ffcc99ff">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <loader id="n2_olug" name="n2" xy="630,380" size="660,320" url="ui://fu4qiuhholug5" fill="scaleFree" autoSize="true"/>
-    <text id="n1_olug" name="username" xy="760,266" size="40,19" fontSize="12" text=""/>
+    <loader id="n4_pznr" name="n4" xy="1920,-1400" size="2652,1989" aspect="true" rotation="90" url="ui://fu4qiuhhpznr6" fill="scale" shrinkOnly="true" fillMethod="vt"/>
+    <graph id="n3_pznr" name="n3" xy="709,303" size="539,479" type="rect" fillColor="#ff9fa99e"/>
+    <text id="n5_pznr" name="account" xy="860,452" size="295,37" fontSize="12" autoSize="none" text="" input="true"/>
+    <text id="n6_pznr" name="n6" xy="751,449" size="71,37" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="账号："/>
+    <text id="n7_pznr" name="password" xy="861,538" size="295,37" fontSize="12" autoSize="none" text="" input="true"/>
+    <text id="n8_pznr" name="n8" xy="752,535" size="71,37" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="密码："/>
+    <component id="n10_pznr" name="Login" src="pznr8" fileName="Button1.xml" xy="893,653">
+      <Button title="登录"/>
+    </component>
   </displayList>
 </component>
