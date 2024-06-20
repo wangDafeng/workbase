@@ -9,10 +9,9 @@ namespace ET.Client
 	{
 		protected override async ETTask Run(Scene root, AppStartInitFinish args)
 		{
-
-
-
-
+			await UIHelper.Create(root, "Login", "Login", UILayer.Mid);
+			await LoginHelper.Login(root, "ss", "ss");
+			
 		}
 	}
 }

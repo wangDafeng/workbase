@@ -12,7 +12,7 @@ namespace ET.Client
         private static void Awake(this Login self, GObject obj)
         {
             self.com = obj;
-            self.m_username = (GTextField)obj.asCom.GetChildAt(1);
+            self.m_username = (GTextField)obj.asCom.GetChildAt(2);
         }
     }
 }

@@ -6,6 +6,8 @@
 		protected override async ETTask Run(Scene root, AppStartInitFinish args)
 		{
 			//await UIHelper.Create(root, UIType.UILSLogin, UILayer.Mid);
+			await UIHelper.Create(root, "Login", "Login", UILayer.Mid);
+			await LoginHelper.Login(root, "ss", "ss");
 		}
 	}
 }

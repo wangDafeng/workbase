@@ -151,20 +151,9 @@ namespace ET.Client
 			{
 				throw new Exception($"on create ui error: {package+component}", e);
 			}
+			
 		}
-
-
-		private static void OnRemove(UIComponent uiComponent, string uiType)
-		{
-			try
-			{
-				UIEventComponent.Instance.UIEvents[uiType].OnRemove(uiComponent);
-			}
-			catch (Exception e)
-			{
-				throw new Exception($"on remove ui error: {uiType}", e);
-			}
-		}
+		
 
         private static async ETTask LoadRes(string name, PackageItem item, ResourcesLoaderComponent resourcesLoaderComponent)
         {
