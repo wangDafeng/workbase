@@ -2,6 +2,7 @@
 <packageDescription id="fu4qiuhh">
   <resources>
     <component id="olug0" name="Login.xml" path="/" exported="true"/>
+    <image id="olug5" name="asdas.jpg" path="/Images/"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

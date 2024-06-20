@@ -4,6 +4,7 @@
     <graph id="n0_olug" name="n0" xy="0,0" size="1920,1080" type="rect">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
+    <loader id="n2_olug" name="n2" xy="630,380" size="660,320" url="ui://fu4qiuhholug5" fill="scaleFree" autoSize="true"/>
     <text id="n1_olug" name="username" xy="760,266" size="40,19" fontSize="12" text=""/>
   </displayList>
 </component>
