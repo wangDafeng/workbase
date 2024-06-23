@@ -12,9 +12,9 @@ namespace ET.Client
         private static void Awake(this Login self, GObject obj)
         {
             self.com = obj;
-            self.m_account = (GTextInput)obj.asCom.GetChildAt(3);
-            self.m_password = (GTextInput)obj.asCom.GetChildAt(5);
-            self.m_Login = (GButton)obj.asCom.GetChildAt(7);
+            self.m_account = (GTextInput)obj.asCom.GetChildAt(5);
+            self.m_password = (GTextInput)obj.asCom.GetChildAt(7);
+            self.m_Login = (GButton)obj.asCom.GetChildAt(9);
         }
     }
 }
