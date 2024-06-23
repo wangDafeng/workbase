@@ -11,8 +11,9 @@ namespace ET.Client
         {
             GlobalComponent globalComponent = root.AddComponent<GlobalComponent>();
             //root.AddComponent<UIGlobalComponent>();
-            root.AddComponent<UIComponent>();
+            UIComponent ui = root.AddComponent<UIComponent>();
             root.AddComponent<ResourcesLoaderComponent>();
+            await ui.LoadDefaultPack("Base");
             root.AddComponent<PlayerComponent>();
             root.AddComponent<CurrentScenesComponent>();
             
@@ -20,7 +21,7 @@ namespace ET.Client
             SceneType sceneType = EnumHelper.FromString<SceneType>(globalComponent.GlobalConfig.AppType.ToString());
             root.SceneType = sceneType;
             
-
+            
 
             await EventSystem.Instance.PublishAsync(root, new AppStartInitFinish());
 

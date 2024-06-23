@@ -4,7 +4,6 @@
     <component id="olug0" name="Login.xml" path="/" exported="true"/>
     <image id="olug5" name="asdas.jpg" path="/Images/"/>
     <image id="pznr6" name="IMG_4346.JPG" path="/"/>
-    <component id="pznr8" name="Button1.xml" path="/"/>
   </resources>
   <publish name="" genCode="true"/>
 </packageDescription>

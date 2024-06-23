@@ -19,12 +19,12 @@ namespace ET.Client
 		}
 
 		
-		public static void OnLogin(this UILoginComponent self)
-		{
-			LoginHelper.Login(
-				self.Root(), 
-				self.account.GetComponent<InputField>().text, 
-				self.password.GetComponent<InputField>().text).Coroutine();
-		}
+		// public static void OnLogin(this UILoginComponent self)
+		// {
+		// 	LoginHelper.Login(
+		// 		self.Root(), 
+		// 		self.account.GetComponent<InputField>().text, 
+		// 		self.password.GetComponent<InputField>().text).Coroutine();
+		// }
 	}
 }

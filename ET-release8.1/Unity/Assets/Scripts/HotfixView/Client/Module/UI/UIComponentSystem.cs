@@ -21,6 +21,11 @@ namespace ET.Client
             UIPackage.unloadBundleByFGUI = false;
         }
 
+		public static async ETTask LoadDefaultPack(this UIComponent self, string pack)
+		{
+			await self.AddPackage(pack);
+		}
+		
 		public static async ETTask<UI> Create(this UIComponent self, string package, string component, UILayer uiLayer)
 		{
 

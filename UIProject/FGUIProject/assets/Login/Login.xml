@@ -4,14 +4,17 @@
     <graph id="n0_olug" name="n0" xy="0,0" size="1920,1080" type="rect" fillColor="#ffcc99ff">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <loader id="n4_pznr" name="n4" xy="1920,-1400" size="2652,1989" aspect="true" rotation="90" url="ui://fu4qiuhhpznr6" fill="scale" shrinkOnly="true" fillMethod="vt"/>
-    <graph id="n3_pznr" name="n3" xy="709,303" size="539,479" type="rect" fillColor="#ff9fa99e"/>
-    <text id="n5_pznr" name="account" xy="860,452" size="295,37" fontSize="12" autoSize="none" text="" input="true"/>
-    <text id="n6_pznr" name="n6" xy="751,449" size="71,37" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="账号："/>
-    <text id="n7_pznr" name="password" xy="861,538" size="295,37" fontSize="12" autoSize="none" text="" input="true"/>
-    <text id="n8_pznr" name="n8" xy="752,535" size="71,37" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="密码："/>
-    <component id="n10_pznr" name="Login" src="pznr8" fileName="Button1.xml" xy="893,653">
-      <Button title="登录"/>
+    <loader id="n4_pznr" name="n4" xy="0,0" size="1920,1080" url="ui://b54iyrieiv7bg" align="center" vAlign="middle" fill="scaleNoBorder" fillMethod="vt"/>
+    <image id="n12_iv7b" name="n12" src="iv7b7e" fileName="Imgs/UI/Log/log_cell_bg_2.png" pkg="b54iyrie" xy="1154,371" size="533,462" group="n11_iv7b" alpha="0.7"/>
+    <image id="n13_iv7b" name="n13" src="iv7b77" fileName="Imgs/UI/Log/common_frame_56.png" pkg="b54iyrie" xy="1285,500" size="365,60" group="n11_iv7b"/>
+    <image id="n14_iv7b" name="n14" src="iv7b77" fileName="Imgs/UI/Log/common_frame_56.png" pkg="b54iyrie" xy="1285,585" size="365,60" group="n11_iv7b"/>
+    <text id="n5_pznr" name="account" xy="1297,511" size="323,38" group="n11_iv7b" fontSize="20" color="#ffffff" autoSize="none" text="" input="true"/>
+    <text id="n6_pznr" name="n6" xy="1193,510" size="71,37" group="n11_iv7b" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="账号："/>
+    <text id="n7_pznr" name="password" xy="1297,597" size="324,37" group="n11_iv7b" fontSize="20" color="#ffffff" autoSize="none" text="" input="true"/>
+    <text id="n8_pznr" name="n8" xy="1194,596" size="71,37" group="n11_iv7b" fontSize="20" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="密码："/>
+    <component id="n10_pznr" name="Login" src="pznr8" fileName="Imgs/UI/Button1.xml" pkg="b54iyrie" xy="1316,695" size="224,76" group="n11_iv7b">
+      <Button title="登录" titleColor="#000000" titleFontSize="30"/>
     </component>
+    <group id="n11_iv7b" name="n11" xy="1154,371" size="533,462"/>
   </displayList>
 </component>

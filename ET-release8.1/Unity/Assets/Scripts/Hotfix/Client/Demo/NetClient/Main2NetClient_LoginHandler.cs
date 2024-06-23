@@ -15,7 +15,7 @@ namespace ET.Client
             root.RemoveComponent<RouterAddressComponent>();
             // 获取路由跟realmDispatcher地址
             RouterAddressComponent routerAddressComponent =
-                    root.AddComponent<RouterAddressComponent, string, int>(ConstValue.RouterHttpHost, ConstValue.RouterHttpPort);
+                    root.AddComponent<RouterAddressComponent, string, int>(request.Ip, request.Port);
             await routerAddressComponent.Init();
             root.AddComponent<NetComponent, AddressFamily, NetworkProtocol>(routerAddressComponent.RouterManagerIPAddress.AddressFamily, NetworkProtocol.UDP);
             root.GetComponent<FiberParentComponent>().ParentFiberId = request.OwnerFiberId;
@@ -33,6 +33,21 @@ namespace ET.Client
                 r2CLogin = (R2C_Login)await session.Call(c2RLogin);
             }
 
+            if (r2CLogin.Error != ErrorCode.ERR_Success)
+            {
+                switch (r2CLogin.Error)
+                {
+                    case ErrorCode.AccountError:
+                        Log.Error("账号异常，马上联系你老公！");
+                        break;    
+                    case ErrorCode.AccountRepeat:
+                        Log.Error("账号已存在！");
+                        break;
+                }
+        
+                return;
+            }
+            
             // 创建一个gate Session,并且保存到SessionComponent中
             Session gateSession = await netComponent.CreateRouterSession(NetworkHelper.ToIPEndPoint(r2CLogin.Address), account, password);
             gateSession.AddComponent<ClientSessionErrorComponent>();

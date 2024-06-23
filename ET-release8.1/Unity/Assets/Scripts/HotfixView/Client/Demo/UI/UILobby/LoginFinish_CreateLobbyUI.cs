@@ -6,7 +6,7 @@
 		protected override async ETTask Run(Scene scene, LoginFinish args)
 		{
 			//await UIHelper.Create(scene, UIType.UILobby, UILayer.Mid);
-			await EnterMapHelper.EnterMapAsync(scene);
+
 		}
 	}
 }

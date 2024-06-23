@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <image id="n0_iady" name="n0" src="iv7b6" fileName="Imgs/BG/bg_06.png" pkg="b54iyrie" xy="0,0" size="1920,1080"/>
+    <component id="n1_iady" name="MatchBtn" src="pznr8" fileName="Imgs/UI/Button1.xml" pkg="b54iyrie" xy="696,425" size="494,117">
+      <Button title="匹配" titleColor="#000000" titleFontSize="36"/>
+    </component>
+  </displayList>
+</component>

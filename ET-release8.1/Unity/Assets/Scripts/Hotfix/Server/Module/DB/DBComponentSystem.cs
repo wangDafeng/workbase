@@ -43,9 +43,19 @@ namespace ET.Server
 	    {
 		    using (await self.Root().GetComponent<CoroutineLockComponent>().Wait(CoroutineLockType.DB, RandomGenerator.RandInt64() % DBComponent.TaskCount))
 		    {
-			    IAsyncCursor<T> cursor = await self.GetCollection<T>(collection).FindAsync(filter);
+			    try
+			    {
+				    IAsyncCursor<T> cursor = await self.GetCollection<T>(collection).FindAsync(filter);
 
-			    return await cursor.ToListAsync();
+				    return await cursor.ToListAsync();
+			    }
+			    catch (Exception e)
+			    {
+				    Console.WriteLine(e);
+				    throw;
+			    }
+
+
 		    }
 	    }
 

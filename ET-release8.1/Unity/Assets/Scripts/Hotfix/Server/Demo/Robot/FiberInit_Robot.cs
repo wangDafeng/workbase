@@ -17,8 +17,8 @@
             root.SceneType = SceneType.Demo;
 
             await EventSystem.Instance.PublishAsync(root, new AppStartInitFinish());
-            
-            await LoginHelper.Login(root, root.Name, "");
+
+            await LoginHelper.Login(root, "127.0.0.1", 30300, root.Name, "");
             
             await EnterMapHelper.EnterMapAsync(root);
             

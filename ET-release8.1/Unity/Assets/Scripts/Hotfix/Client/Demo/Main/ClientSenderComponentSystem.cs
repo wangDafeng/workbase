@@ -30,7 +30,7 @@ namespace ET.Client
             await FiberManager.Instance.Remove(fiberId);
         }
 
-        public static async ETTask<long> LoginAsync(this ClientSenderComponent self, string account, string password)
+        public static async ETTask<long> LoginAsync(this ClientSenderComponent self,string ip,int port, string account, string password)
         {
             self.fiberId = await FiberManager.Instance.Create(SchedulerType.ThreadPool, 0, SceneType.NetClient, "");
             self.netClientActorId = new ActorId(self.Fiber().Process, self.fiberId);
@@ -39,6 +39,8 @@ namespace ET.Client
             main2NetClientLogin.OwnerFiberId = self.Fiber().Id;
             main2NetClientLogin.Account = account;
             main2NetClientLogin.Password = password;
+            main2NetClientLogin.Ip = ip;
+            main2NetClientLogin.Port = port;
             NetClient2Main_Login response = await self.Root().GetComponent<ProcessInnerSender>().Call(self.netClientActorId, main2NetClientLogin) as NetClient2Main_Login;
             return response.PlayerId;
         }
